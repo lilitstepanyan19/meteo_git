@@ -1,0 +1,1 @@
+{'Su, 25 September': {'Night': '+6', 'Morning': '+2', 'Afternoon': '+19', 'Evening': '+12'}, 'Mo, 26 September': {'Night': '+8', 'Morning': '+7', 'Afternoon': '+21', 'Evening': '+14'}, 'Tu, 27 September': {'Night': '+11', 'Morning': '+10', 'Afternoon': '+24', 'Evening': '+17'}}
