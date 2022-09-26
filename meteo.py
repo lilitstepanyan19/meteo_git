@@ -55,7 +55,6 @@ for el in date_temp:
     d_temp.append(el.text)
 
 
-
 date_value = []
 for i in range(len(d_date)):
     d = {}
