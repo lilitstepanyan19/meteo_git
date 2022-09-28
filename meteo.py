@@ -1,76 +1,107 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from cgitb import text
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from cgitb import text
 
-link = 'https://www.gismeteo.com/'
+import smtplib
 
-period_list = ["now", "today", "tomorrow", "3 days", "10 days", "2 weeks", "month", "7 days"]
-country = input('Select a country: ')
-inp = input(f'Select a period from the list: {period_list}: ')
-# country = 'gyumri'
-# inp = '3 days'
+# link = 'https://www.gismeteo.com/'
 
-browser = webdriver.Chrome()
-browser.implicitly_wait(10)
-browser.get(link)
+# period_list = ["now", "today", "tomorrow", "3 days", "10 days", "2 weeks", "month", "7 days"]
+# country = input('Select a country: ')
+# inp = input(f'Select a period from the list: {period_list}: ')
+# # country = 'gyumri'
+# # inp = '3 days'
 
-
-
-
-search_info = browser.find_element(By.CSS_SELECTOR, '.input.js-input')
-search_info.send_keys(country)
-
-search_btn = browser.find_element(By.CLASS_NAME, 'search-item')
-search_btn.click()
+# browser = webdriver.Chrome()
+# browser.implicitly_wait(10)
+# browser.get(link)
 
 
-if inp in period_list:
-    if ' ' in inp:
-        inp = inp.replace(' ', '\u00a0')
-    period_info = browser.find_element(By.XPATH, f'//a[text()="{inp}"]')
-    period_info.click()
-else:
-    print("No result")
 
 
-date = browser.find_elements(By.CSS_SELECTOR, '.widget-date-wrap>.item')
-d_date = []
-for el in date:
-    if el.text == '' or el.text in d_date:
-        continue
-    d_date.append(el.text)
+# search_info = browser.find_element(By.CSS_SELECTOR, '.input.js-input')
+# search_info.send_keys(country)
 
-date_time = browser.find_elements(By.CSS_SELECTOR, '.widget-row>.row-item>span')
-d_time = []
-for el in date_time:
-    if el.text == '' or not el.text.isalpha():
-        continue
-    d_time.append(el.text)
-
-date_temp = browser.find_elements(By.CSS_SELECTOR, '.chart>.values>.value')
-d_temp = []
-for el in date_temp:
-    if el.text == '':
-        continue
-    d_temp.append(el.text)
+# search_btn = browser.find_element(By.CLASS_NAME, 'search-item')
+# search_btn.click()
 
 
-date_value = []
-for i in range(len(d_date)):
-    d = {}
-    for j in range(i*4,i*4+4):
-        d[d_time[j]] = d_temp[j]
-    i+=4
-    date_value.append(d)
+# if inp in period_list:
+#     if ' ' in inp:
+#         inp = inp.replace(' ', '\u00a0')
+#     period_info = browser.find_element(By.XPATH, f'//a[text()="{inp}"]')
+#     period_info.click()
+# else:
+#     print("No result")
 
-data = {}
 
-for i in range(len(d_date)):
-    data[d_date[i]] = date_value[i]  
+# date = browser.find_elements(By.CSS_SELECTOR, '.widget-date-wrap>.item')
+# d_date = []
+# for el in date:
+#     if el.text == '' or el.text in d_date:
+#         continue
+#     d_date.append(el.text)
+
+# date_time = browser.find_elements(By.CSS_SELECTOR, '.widget-row>.row-item>span')
+# d_time = []
+# for el in date_time:
+#     if el.text == '' or not el.text.isalpha():
+#         continue
+#     d_time.append(el.text)
+
+# date_temp = browser.find_elements(By.CSS_SELECTOR, '.chart>.values>.value')
+# d_temp = []
+# for el in date_temp:
+#     if el.text == '':
+#         continue
+#     d_temp.append(el.text)
+
+
+# date_value = []
+# for i in range(len(d_date)):
+#     d = {}
+#     for j in range(i*4,i*4+4):
+#         d[d_time[j]] = d_temp[j]
+#     i+=4
+#     date_value.append(d)
+
+# data = {}
+
+# for i in range(len(d_date)):
+#     data[d_date[i]] = date_value[i]  
     
-print(data)    
+# print(data)    
     
-with open('meteo.txt', 'w') as f:
-    f.write(str(data))
-    f.close()
-browser.close()
+# with open('meteo.txt', 'w') as f:
+#     f.write(str(data))
+#     f.close()
+# browser.close()
+
+x = 'afawf'
+print(x)
+
+letter = """\
+From: mymail@gmail.com
+To: friend@gmail.com
+Subject: Важно!
+Content-Type: text/plain; charset="UTF-8";
+
+Привет!"""
+
+letter = letter.encode("UTF-8")
+
+print(letter)
+server = smtplib.SMTP_SSL('smtp.mail.com:587')
+server.login('lil.lid@mail.ru', '194686l')
+server.sendmail('lil.lid@mail.ru', 'lil.lid@mail.ru', message)
+
+import ssl  # переместите в шапку файла
+context = ssl.SSLContext(ssl.PROTOCOL_TLS)
+
+server.ehlo()
+server.starttls(context=context)
+server.ehlo()
+
+
+
+
