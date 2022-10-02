@@ -1,0 +1,2 @@
+gyumri - 3 days
+{'Su, 2 October': {'Night': '+14', 'Morning': '+9', 'Afternoon': '+24', 'Evening': '+17'}, 'Mo, 3 October': {'Night': '+12', 'Morning': '+11', 'Afternoon': '+24', 'Evening': '+16'}, 'Tu, 4 October': {'Night': '+12', 'Morning': '+10', 'Afternoon': '+25', 'Evening': '+18'}}
