@@ -1,2 +1,8 @@
-gyumri - 3 days
-{'Su, 2 October': {'Night': '+14', 'Morning': '+9', 'Afternoon': '+24', 'Evening': '+17'}, 'Mo, 3 October': {'Night': '+12', 'Morning': '+11', 'Afternoon': '+24', 'Evening': '+16'}, 'Tu, 4 October': {'Night': '+12', 'Morning': '+10', 'Afternoon': '+25', 'Evening': '+18'}}
+Gyumri - today
+{'1:00': '+12', '4:00': '+8', '7:00': '+6', '10:00': '+15', '13:00': '+22', '16:00': '+24', '19:00': '+17', '22:00': '+18'}Gyumri - 3 days
+{'Mo, 3 October': {'Night': '+16', 'Morning': '+11', 'Afternoon': '+27', 'Evening': '+23'}, 'Tu, 4 October': {'Night': '+19', 'Morning': '+17', 'Afternoon': '+30', 'Evening': '+23'}, 'We, 5 October': {'Night': '+20', 'Morning': '+18', 'Afternoon': '+30', 'Evening': '+24'}}Gyumri - today
+{'2:00': '+30', '5:00': '+29', '8:00': '+31', '11:00': '+34', '14:00': '+36', '17:00': '+35', '20:00': '+32', '23:00': '+29'}Gyumri - today
+{'1:00': '+19', '4:00': '+13', '7:00': '+11', '10:00': '+19', '13:00': '+26', '16:00': '+27', '19:00': '+24', '22:00': '+21'}Gyumri - today
+{'1:00': '+19', '4:00': '+13', '7:00': '+11', '10:00': '+19', '13:00': '+26', '16:00': '+27', '19:00': '+24', '22:00': '+21'}Gyumri - 3 days
+{'Mo, 3 October': {'Night': '+16', 'Morning': '+11', 'Afternoon': '+27', 'Evening': '+23'}, 'Tu, 4 October': {'Night': '+19', 'Morning': '+17', 'Afternoon': '+30', 'Evening': '+23'}, 'We, 5 October': {'Night': '+20', 'Morning': '+18', 'Afternoon': '+30', 'Evening': '+24'}}Gyumri - today
+{'1:00': '+12', '4:00': '+8', '7:00': '+6', '10:00': '+15', '13:00': '+22', '16:00': '+24', '19:00': '+17', '22:00': '+18'}
