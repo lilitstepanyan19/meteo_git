@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from cgitb import text
 
 
-def get_period_info_click(inp_period, period_list):
+def get_period_info_click(inp_period, period_list, browser):
     if inp_period in period_list:
         if ' ' in inp_period:
             inp_period = inp_period.replace(' ', '\u00a0')
@@ -73,8 +73,8 @@ def get_today_temp(today_temp):
 
 
 
-def get_write_info(data_result):
-    with open('meteo.txt', 'w') as f:
+def get_write_info(data_result, country, inp_period):
+    with open('meteo.txt', 'a') as f:
         f.write(f'{country.title()} - {inp_period}\n')
         f.write(str(data_result))
         f.close()
@@ -90,7 +90,7 @@ def main():
     
     link = 'https://www.gismeteo.com/'
     browser = webdriver.Chrome()
-    browser.implicitly_wait(10)
+    browser.implicitly_wait(15)
     browser.get(link)
 
     search_info = browser.find_element(By.CSS_SELECTOR, '.input.js-input')
@@ -100,7 +100,7 @@ def main():
     search_btn.click()
 
     if inp_period.lower() == '3 days':
-        get_period_info_click(inp_period, period_list)
+        get_period_info_click(inp_period, period_list, browser)
         date = browser.find_elements(By.CSS_SELECTOR, '.widget-date-wrap>.item')
         date_time = browser.find_elements(By.CSS_SELECTOR, '.widget-row>.row-item>span')
         date_temp = browser.find_elements(By.CSS_SELECTOR, '.chart>.values>.value')
@@ -108,15 +108,17 @@ def main():
         d_time = get_time(date_time)
         d_temp = get_temp(date_temp)
         date_value = get_date_value(d_date, d_time, d_temp)
-        data_result = get_data(d_date, date_value)
-        print(data_result)
-        get_write_info(data_result)
-    elif inp_period == 'today':
+        # data_result = get_data(d_date, date_value)
+        # print(data_result)
+        # get_write_info(data_result)
+    elif inp_period.lower() == 'today':
         today_time = browser.find_elements(By.CSS_SELECTOR, '.widget-items>.widget-row-time>.row-item>span')
         today_temp = browser.find_elements(By.CSS_SELECTOR, '.widget-row-chart>.chart>.values>.value>span')
-        today_time_house = get_today_time(today_time)
-        t_temp = get_today_temp(today_temp)
-        print(t_temp)
+        d_date = get_today_time(today_time)
+        date_value = get_today_temp(today_temp)
+    data_result = get_data(d_date, date_value)
+    print(data_result)
+    get_write_info(data_result, country, inp_period)
     browser.close()
 print(main())
 
